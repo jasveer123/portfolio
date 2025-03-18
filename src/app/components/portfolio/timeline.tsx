@@ -18,12 +18,12 @@ interface WorkExperience {
 const experiences: WorkExperience[] = [
     {
         company: "Hashtrust Technologies",
-        role: "Senior Software Engineer",
+        role: "Software Engineer",
         dateRange: "July 2022 – Present | Gurugram, Haryana",
         companyUrl: "https://hashtrust.com",
         description:
             "Led the development of modern, responsive websites and documentation platforms, improving user engagement through actionable data insights. Enhanced website performance by 30% through API optimizations and server-side migrations. Developed an integrations platform by leveraging dynamic data retrieval, ensuring efficient frontend responsiveness and backend handling. Applied SEO techniques, boosting optimization by approximately 78%. Built a payment gateway with Web3 capabilities, enabling secure token transactions and seamless user interactions. Collaborated with UI/UX teams to deliver pixel-perfect designs and reusable components.",
-        technologies: ["React", "NextJS", "TypeScript", "TailwindCSS", "Web3", "API Integration"]
+        technologies: ["NextJs", "ReactJS", "TypeScript", "Javascript", "TailwindCSS", "Framer-motion", "Shadcn", "Framer-motion", "CI/CD", "Docker", "Nodejs", "Expressjs", "Mongodb", "PostgreSQL", "Web3", "API Integration"]
     },
     {
         company: "Celebal Technologies",

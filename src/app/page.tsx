@@ -103,10 +103,10 @@ export default function Page() {
       <div className="max-w-3xl mx-auto px-4 py-12">
         <ProfileHeader professions={["Senior Software Engineer", "Blockchain and Ai enthusiast", "Cooking baking"]} />
         <div className="intro-section"><IntroSection /></div>
-        <PinterestGrid />
         <div className="timeline-section"><Timeline /></div>
-        <div className="tech-stack-section"><TechStackSection /></div>
         <div className="projects-section"><ProjectsSection /></div>
+        <div className="tech-stack-section"><TechStackSection /></div>
+        <PinterestGrid />
         <div className="education-section"><EducationSection /></div>
         <div className="summary-section"><SummarySection /></div>
         <WorkTogether />
