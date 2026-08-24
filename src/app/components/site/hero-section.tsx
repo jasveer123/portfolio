@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type PointerEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type PointerEvent, type ReactElement, type ReactNode } from "react";
 import {
   motion,
   useMotionValue,
@@ -29,7 +29,7 @@ import {
 
 type HeroMode = "chaos" | "clean" | "music";
 
-function BroomIcon({ className }: { className?: string }) {
+function BroomIcon({ className }: { className?: string }): ReactElement {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ const CLEAN_ROWS: { key: DeskKey; node: ReactNode; className?: string }[][] = [
 const MODES: {
   id: HeroMode;
   label: string;
-  icon: (props: { className?: string }) => ReactNode;
+  icon: (props: { className?: string }) => ReactElement;
 }[] = [
   { id: "chaos", label: "Chaos", icon: ({ className }) => <Coffee className={className} strokeWidth={1.75} /> },
   { id: "clean", label: "Clean", icon: BroomIcon },
