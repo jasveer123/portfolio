@@ -3,118 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --slate-gray: #98A1B2;
-  --steel-gray: #667085;
-  --gunmetal: #1D2939;
-  --light-gray: #EAECF0;
-  --soft-gray: #F2F4F7;
-  --charcoal: #344054;
-  --off-white: #F9FAFB;
-  --pure-white: #FCFCFD;
-  --vibrant-orange: #F97316;
-  --white: #FFFFFF;
-  --black: #000000;
-  --ash-gray: #475467;
+  --canvas: #E8EDE4;
+  --canvas-elevated: #F3F6F0;
+  --ink: #1A1F1C;
+  --ink-muted: #5A635C;
+  --signal: #2F6F62;
+  --radius: 0.75rem;
+
+  --background: 80 25% 93%;
+  --foreground: 300 4% 11%;
+  --card: 80 30% 96%;
+  --card-foreground: 300 4% 11%;
+  --popover: 80 30% 96%;
+  --popover-foreground: 300 4% 11%;
+  --primary: 300 4% 11%;
+  --primary-foreground: 80 25% 93%;
+  --secondary: 80 15% 90%;
+  --secondary-foreground: 300 4% 11%;
+  --muted: 80 12% 88%;
+  --muted-foreground: 200 8% 35%;
+  --accent: 171 79% 34%;
+  --accent-foreground: 80 25% 93%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 300 4% 20% / 0.15;
+  --input: 300 4% 20% / 0.15;
+  --ring: 171 79% 34%;
 }
-
-body {
-  font-family: var(--font-plus-jakarta-sans), sans-serif;
-  background-color: var(--pure-white);
-}
-
-p{
-  font-size: 15px;
-  line-height: 1.8em;
-  color: var(--steel-gray);
-  font-family: var(--font-plus-jakarta-sans), sans-serif;
-}
-
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply antialiased;
+    font-family: var(--font-body), system-ui, sans-serif;
+    background-color: var(--canvas);
+    color: var(--ink);
+    transition: background-color 500ms ease, color 500ms ease;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--signal) 35%, transparent);
+    color: var(--ink);
   }
 }
 
-@keyframes slide-up {
-  0% { transform: translateY(100%); opacity: 0; }
-  50% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100%); opacity: 0; }
-}
-
-.animate-slide-up {
-  animation: slide-up 2s ease-in-out forwards;
-}
-
-.fixed-button {
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  padding: 8px;
-  border-radius: 50%;
-  border: 1px solid #E8E8E8;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+@layer utilities {
+  .bg-grid-fade {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--ink) 8%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
 }

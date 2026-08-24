@@ -9,10 +9,25 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			display: ["var(--font-display)", "system-ui", "sans-serif"],
+			body: ["var(--font-body)", "system-ui", "sans-serif"],
+			mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+			script: ["var(--font-script)", "cursive"],
+		},
 		animation: {
 			'spin-slow': 'spin 3s linear infinite',
 		},
   		colors: {
+  			canvas: {
+  				DEFAULT: "var(--canvas)",
+  				elevated: "var(--canvas-elevated)",
+  			},
+  			ink: {
+  				DEFAULT: "var(--ink)",
+  				muted: "var(--ink-muted)",
+  			},
+  			signal: "var(--signal)",
   			slateGray: 'var(--slate-gray)',
   			steelGray: 'var(--steel-gray)',
   			gunmetal: 'var(--gunmetal)',
