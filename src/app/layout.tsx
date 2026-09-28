@@ -28,9 +28,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Jasveer Singh — Frontend Engineer",
+  title: "Jasveer Singh — Software Engineer",
   description:
-    "Portfolio of Jasveer Singh — Frontend Engineer with 4.5+ years building high-performance interfaces for research platforms, AI products, and fintech.",
+    "Portfolio of Jasveer Singh —  Software Engineer with 4.5+ years building high-performance interfaces for research platforms, AI products, and fintech.",
 };
 
 export default function RootLayout({

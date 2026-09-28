@@ -1,6 +1,6 @@
 export const profile = {
   name: "Jasveer Singh",
-  role: "Frontend Engineer",
+  role: "Software Engineer",
   tagline: "I design and ship high-performance interfaces for research, AI, and fintech products.",
   location: "Gurugram, India",
   availability: "Open to opportunities",
