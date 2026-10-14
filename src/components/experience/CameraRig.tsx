@@ -5,7 +5,6 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { experienceStore, useExperience, type ViewMode } from "@/lib/experience-store";
 import { applyCamera } from "@/lib/scene-config";
 import type { ModelRig } from "@/lib/projector-model";
@@ -44,7 +43,7 @@ export function CameraRig({ rig }: { rig: ModelRig }) {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   const size = useThree((s) => s.size);
   const mode = useExperience((s) => s.viewMode);
-  const controls = useRef<OrbitControlsImpl | null>(null);
+  const controls = useRef<React.ComponentRef<typeof OrbitControls> | null>(null);
   const tween = useRef<gsap.core.Tween | null>(null);
   const moving = useRef(false);
   const prevMode = useRef<ViewMode | null>(null);
