@@ -82,8 +82,10 @@ describe("projector model mapping", () => {
 
 describe("content", () => {
   it("has the five projects and three companies in order", () => {
-    expect(projects.map((p) => p.slug)).toEqual(["asi1", "fetch-integrations", "jasper-ops", "web3-gateway", "globacap"]);
+    expect(projects.map((p) => p.slug)).toEqual(["asi1", "fetch-integrations", "web3-gateway", "globacap", "projector-portfolio"]);
     expect(experienceFrames.map((f) => f.company)).toEqual(["Celebal Technologies", "Hashtrust Technologies", "Jasper Colin"]);
     for (const p of projects.filter((x) => x.confidential)) expect(p.images.hero).toBeUndefined();
+    // company work is outline-only; this site is the personal project
+    expect(projects.filter((p) => p.kind === "personal").map((p) => p.slug)).toEqual(["projector-portfolio"]);
   });
 });

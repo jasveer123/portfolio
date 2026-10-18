@@ -33,7 +33,7 @@ export function ExperienceProjection() {
         The film reel, 2021 → today.
       </h1>
       <p className="muted" style={{ margin: "0.5em 0 0" }}>
-        Drag the filmstrip on the desk, or choose a frame below.
+        Choose a frame on the reel below.
       </p>
 
       <div ref={reelRef} className="reel" role="tablist" aria-label="Career timeline" onKeyDown={onReelKey}>

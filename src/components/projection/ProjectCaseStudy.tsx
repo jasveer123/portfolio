@@ -78,7 +78,7 @@ export function ProjectCaseStudy({ project, index, total, prev, next }: Props) {
           <span className="label" style={{ margin: 0 }}>
             {project.category} · {project.year}
           </span>
-          {project.confidential && <span className="badge">Confidential</span>}
+          <ProjectTags project={project} />
           {project.externalUrl && (
             <a className="link" href={project.externalUrl} target="_blank" rel="noreferrer">
               {project.externalLabel ?? project.externalUrl} <span aria-hidden="true">↗</span>
@@ -195,6 +195,17 @@ export function ProjectCaseStudy({ project, index, total, prev, next }: Props) {
         </Link>
       </nav>
     </article>
+  );
+}
+
+/** Company work vs personal work; company work shows an outline only. */
+export function ProjectTags({ project }: { project: Project }) {
+  if (project.kind === "personal") return <span className="badge badge-personal">Personal project</span>;
+  return (
+    <>
+      <span className="badge">Company project</span>
+      <span className="badge badge-quiet">{project.confidential ? "Confidential · outline only" : "Outline only · client details withheld"}</span>
+    </>
   );
 }
 

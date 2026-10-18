@@ -17,7 +17,7 @@ export type SectionDef = {
 /** The five primary slides, in tray / carousel order. */
 export const PRIMARY_SECTIONS: SectionDef[] = [
   { id: "about", label: "About", number: "01", path: "/", symbol: "profile", hint: "Who I am" },
-  { id: "work", label: "Work", number: "02", path: "/work", symbol: "briefcase", hint: "Five case studies" },
+  { id: "work", label: "Work", number: "02", path: "/work", symbol: "briefcase", hint: "Five projects" },
   { id: "experience", label: "Experience", number: "03", path: "/experience", symbol: "road", hint: "The timeline" },
   { id: "play", label: "Play", number: "04", path: "/play", symbol: "note", hint: "Music & photographs" },
   { id: "contact", label: "Contact", number: "05", path: "/contact", symbol: "envelope", hint: "Say hello" },

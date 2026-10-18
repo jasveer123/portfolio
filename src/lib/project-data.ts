@@ -2,6 +2,7 @@ import type { StaticImageData } from "next/image";
 import integrations from "@/images/integrations.png";
 import fetchDocs from "@/images/fetch-docs.png";
 import globacap from "@/images/globacap.png";
+import projectorPortfolio from "@/images/projects/projector-portfolio.jpg";
 
 /**
  * Case-study content. Every statement here is taken from the résumé or the
@@ -36,6 +37,8 @@ export type Project = {
   category: string;
   year: string;
   company: string;
+  /** Built at a company (outline only for client work) or a personal project. */
+  kind: "company" | "personal";
   summary: string;
   problem: string;
   targetUsers: string;
@@ -70,6 +73,7 @@ export const projects: Project[] = [
     category: "Conversational AI",
     year: "2024",
     company: "Hashtrust Technologies · for Fetch.ai",
+    kind: "company",
     summary:
       "An end-to-end conversational AI platform built around the ASI LLM — chat interface, memory, sessions and the APIs between them.",
     problem:
@@ -127,6 +131,7 @@ export const projects: Project[] = [
     category: "Developer platform",
     year: "2024",
     company: "Hashtrust Technologies · for Fetch.ai",
+    kind: "company",
     summary:
       "A dynamic integrations hub that reads live data from GitHub, processes it through FastAPI and presents the Fetch.ai ecosystem in a responsive Next.js UI.",
     problem:
@@ -186,73 +191,13 @@ export const projects: Project[] = [
     externalLabel: "fetch.ai/docs",
   },
   {
-    slug: "jasper-ops",
-    title: "Jasper Colin Operations Tool",
-    shortTitle: "Ops Tool",
-    category: "Research operations",
-    year: "2025",
-    company: "Jasper Colin",
-    summary:
-      "An outreach and operations platform for Admins and Research Associates on the Top Brass research platform.",
-    problem:
-      "Admins and Research Associates needed one place to run outreach — dashboards, calls, consent and access control — with sensitive data handled securely.",
-    targetUsers: "Admins and Research Associates (RAs) running research outreach.",
-    experience:
-      "Role-aware dashboards and RA workflows, with dialer and Microsoft Teams integrations and video consent management in the same tool.",
-    contribution: [
-      "Built the Operations Tool in Next.js: dashboards, RA workflows, dialer and Teams integrations, video consent management and role-based access control.",
-      "Implemented scalable Node.js, Express and MongoDB APIs for frontend–backend communication.",
-      "Added encryption, data masking and audit logging for data security and compliance.",
-      "Built a custom OpenTelemetry package with Grafana and Jaeger for centralised frontend logging, metrics and tracing across Top Brass services.",
-    ],
-    decisions: [
-      "Role-based access control as the backbone that separates Admin and RA capabilities.",
-      "Encryption, masking and audit logging built into the API layer rather than bolted on.",
-      "One shared OpenTelemetry package instead of per-application instrumentation.",
-    ],
-    challenges: [
-      "Handling sensitive participant data while keeping outreach workflows fast.",
-      "Coordinating several third-party integrations — dialer, Teams, video consent — in one product.",
-    ],
-    qualityWork: [
-      "Security: encryption, data masking, audit logging, RBAC.",
-      "Observability: logs, metrics and distributed tracing via OpenTelemetry → Grafana / Jaeger.",
-    ],
-    technologies: ["Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "OpenTelemetry", "Grafana", "Jaeger"],
-    results: [
-      "Outreach, consent and access control for Admins and RAs in a single tool.",
-      "Centralised frontend logging, metrics and distributed tracing across Top Brass services.",
-    ],
-    lessons: [
-      "Compliance features are easiest when they are part of the API contract from day one.",
-    ],
-    architecture: {
-      nodes: [
-        { id: "ui", label: "Ops Tool", detail: "Next.js · RBAC views", layer: "client" },
-        { id: "api", label: "Express APIs", detail: "encrypt · mask · audit", layer: "service" },
-        { id: "db", label: "MongoDB", detail: "operations data", layer: "data" },
-        { id: "int", label: "Integrations", detail: "dialer · Teams · consent", layer: "external" },
-        { id: "otel", label: "OpenTelemetry", detail: "Grafana · Jaeger", layer: "observability" },
-      ],
-      edges: [
-        { from: "ui", to: "api", label: "REST" },
-        { from: "api", to: "db" },
-        { from: "ui", to: "int" },
-        { from: "ui", to: "otel", label: "traces" },
-      ],
-    },
-    images: {},
-    accent: "#A9573A",
-    confidential: true,
-    confidentialityNote: "Confidential client work — the cover is abstract and no product UI is shown. Metrics are not published.",
-  },
-  {
     slug: "web3-gateway",
     title: "Web3 Payment Gateway",
     shortTitle: "Connect Wallet",
     category: "Multi-wallet checkout",
     year: "2023",
     company: "Hashtrust Technologies",
+    kind: "company",
     summary:
       "A Web3 payment gateway that accepts token transfers from MetaMask, TronLink and Trust Wallet across ERC-20 and TRC-20 networks.",
     problem:
@@ -300,6 +245,7 @@ export const projects: Project[] = [
     category: "Enterprise fintech",
     year: "2023",
     company: "Hashtrust Technologies · for Globacap",
+    kind: "company",
     summary:
       "Frontend modules for a private capital markets platform, built pixel-perfect from Figma with Redux-Saga managing complex API flows.",
     problem:
@@ -341,6 +287,72 @@ export const projects: Project[] = [
     accent: "#7A4646",
     externalUrl: "https://globacap.com",
     externalLabel: "globacap.com",
+  },
+  {
+    slug: "projector-portfolio",
+    title: "Projector Portfolio",
+    shortTitle: "This site",
+    category: "Interactive 3D portfolio",
+    year: "2026",
+    company: "Personal project",
+    kind: "personal",
+    summary:
+      "This portfolio: a study modelled in Blender where an old carousel slide projector is the navigation, and the work is projected onto the wall as light.",
+    problem:
+      "Most portfolios are a scrolling list of cards. I wanted the work to be discovered — physical, a little playful — without losing readable text, links, keyboard access or SEO.",
+    targetUsers: "Recruiters, engineers and anyone curious about how I work.",
+    experience:
+      "Step into the room, switch the projector on and choose a slide. Each project opens as a projection with four focus layers. Switch it off and the wall turns personal — Polaroids, music, a paper airplane.",
+    contribution: [
+      "Designed and built the whole experience — the concept, the 3D scene, the interactions and the content.",
+      "Wrote a Blender pipeline that bakes Cycles lighting into texture atlases and exports a Draco-compressed GLB.",
+      "Built the scene in React Three Fiber with a custom shader that mixes the baked room and projector light live.",
+      "Built the projection, project layers, experience timeline, skills blueprint and personal wall as real HTML pages.",
+    ],
+    decisions: [
+      "Bake two lighting states (room, projector) and mix them by lamp level — realistic light for one extra texture lookup.",
+      "Keep every slide as real HTML blended onto the lit wall, so text stays selectable, linkable, accessible and indexable.",
+      "Drive the room from a typed Zustand state machine (off → warming → changing slide → focusing → ready), unit-tested without WebGL.",
+      "Real routes for every slide and project (/work/[slug]?view=architecture), so every view is linkable.",
+      "Synthesise the projector, switch and focus sounds with the Web Audio API — no audio files for the mechanics.",
+    ],
+    challenges: [
+      "Lining up HTML exactly with a perspective camera on every screen size.",
+      "Packing lightmap UVs for a whole room so the desk, wall and projector keep enough texture detail.",
+      "Keeping a 3D scene light enough to load fast, with a static fallback when WebGL isn't available.",
+    ],
+    qualityWork: [
+      "Keyboard controls, reduced-motion mode, screen-reader announcements and a no-WebGL fallback.",
+      "Static pages with metadata, Open Graph images, sitemap and structured data.",
+      "Vitest suite for the state machine, navigation, focus wheel and model fallbacks.",
+    ],
+    technologies: ["Next.js", "TypeScript", "React Three Fiber", "Three.js", "GLSL", "Blender", "GSAP", "Framer Motion", "Zustand", "Web Audio API", "Vitest"],
+    results: [
+      "A portfolio that works as an experience and as a plain, accessible website.",
+      "About 2 MB of baked lighting for a fully lit room, loaded after the first paint.",
+    ],
+    lessons: ["Baking light buys realism cheaply — the hard part is everything around the 3D: layout, access and loading."],
+    architecture: {
+      nodes: [
+        { id: "ui", label: "Next.js pages", detail: "HTML slides · routes", layer: "client" },
+        { id: "r3f", label: "R3F scene", detail: "shader · state machine", layer: "client" },
+        { id: "bake", label: "Bake script", detail: "Blender · Cycles", layer: "service" },
+        { id: "assets", label: "GLB + atlases", detail: "Draco · WebP", layer: "data" },
+        { id: "blend", label: "Blender model", detail: "the study", layer: "external" },
+      ],
+      edges: [
+        { from: "blend", to: "bake", label: "export" },
+        { from: "bake", to: "assets", label: "bake" },
+        { from: "r3f", to: "assets", label: "load" },
+      ],
+    },
+    images: {
+      hero: projectorPortfolio,
+      heroAlt: "The portfolio's study: a technical blueprint projected on the wall above the desk and slide projector",
+    },
+    accent: "#3d4f5c",
+    externalUrl: "https://portfolio-ashy-zeta-39.vercel.app",
+    externalLabel: "you are here",
   },
 ];
 

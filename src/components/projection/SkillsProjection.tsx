@@ -30,7 +30,7 @@ export function SkillsProjection() {
         </div>
       </div>
       <p className="muted" style={{ marginTop: "1.2em", fontSize: "0.92em" }}>
-        See these tools in context in the <Link className="link" href="/work">case studies</Link> and on the{" "}
+        See these tools in context in the <Link className="link" href="/work">projects</Link> and on the{" "}
         <Link className="link" href="/experience">timeline</Link>.
       </p>
     </article>

@@ -82,13 +82,13 @@ describe("projector state machine", () => {
     const store = createExperienceStore();
     store.getState().powerOn();
     settle();
-    store.getState().selectProject("jasper-ops");
+    store.getState().selectProject("web3-gateway");
     const s = store.getState();
     expect(s.activeSection).toBe("work");
     expect(s.carouselSet).toBe("projects");
     expect(s.carouselIndex).toBe(2);
     expect(s.carouselDropped).toBe(true);
-    expect(s.urlRequest?.url).toBe("/work/jasper-ops");
+    expect(s.urlRequest?.url).toBe("/work/web3-gateway");
     settle();
     expect(store.getState().projectorState).toBe("project-open");
   });
@@ -121,13 +121,13 @@ describe("projector state machine", () => {
     const store = createExperienceStore();
     store.getState().powerOn();
     settle();
-    store.getState().selectProject("globacap");
+    store.getState().selectProject("projector-portfolio");
     settle();
     store.getState().stepSlide(1);
     expect(store.getState().activeProject).toBe("asi1");
     settle();
     store.getState().stepSlide(-1);
-    expect(store.getState().activeProject).toBe("globacap");
+    expect(store.getState().activeProject).toBe("projector-portfolio");
   });
 
   it("view changes replace the URL and turn the focus wheel", () => {
@@ -171,7 +171,7 @@ describe("projector state machine", () => {
     const s = store.getState();
     expect(s.activeProject).toBe("globacap");
     expect(s.activeProjectView).toBe("impact");
-    expect(s.carouselIndex).toBe(4);
+    expect(s.carouselIndex).toBe(3);
     expect(s.urlRequest).toBeNull();
   });
 

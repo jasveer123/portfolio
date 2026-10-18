@@ -3,7 +3,7 @@ import { WorkProjection } from "@/components/projection/WorkProjection";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Five case studies — ASI1.ai, Fetch.ai Integrations, the Jasper Colin Operations Tool, a Web3 payment gateway and Globacap.",
+  description: "Five projects — ASI1.ai, Fetch.ai Integrations, a Web3 payment gateway, Globacap and this projector portfolio.",
   alternates: { canonical: "/work" },
 };
 

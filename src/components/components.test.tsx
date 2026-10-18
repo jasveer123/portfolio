@@ -41,10 +41,11 @@ describe("case study", () => {
   });
 
   it("labels confidential work and shows no product screenshot", () => {
-    act(() => experienceStore.getState().hydrateRoute({ section: "work", project: "jasper-ops", view: "product", frame: null }));
-    const p = getProject("jasper-ops")!;
+    act(() => experienceStore.getState().hydrateRoute({ section: "work", project: "web3-gateway", view: "product", frame: null }));
+    const p = getProject("web3-gateway")!;
     render(<ProjectCaseStudy project={p} index={2} total={5} prev={projects[1]} next={projects[3]} />);
-    expect(screen.getByText("Confidential")).toBeInTheDocument();
+    expect(screen.getByText("Company project")).toBeInTheDocument();
+    expect(screen.getByText("Confidential · outline only")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /abstract cover/i })).toBeInTheDocument();
   });
 });

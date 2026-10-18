@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { projects } from "@/lib/project-data";
 import { ProjectCover } from "./ProjectCover";
+import { ProjectTags } from "./ProjectCaseStudy";
 
 export function WorkProjection() {
   return (
     <article className="proj" aria-labelledby="work-title">
       <p className="kicker">Slide 02 · Work</p>
       <h1 id="work-title" className="title-lg">
-        Five case studies, loaded in the carousel.
+        Five projects, loaded in the carousel.
       </h1>
       <p className="lede" style={{ maxWidth: "52ch", marginTop: "0.6em" }}>
-        Pick a slide — from this contact sheet or the projector carousel. Inside each one, turn the focus wheel to move
+        Pick a slide — from this contact sheet or the projector carousel. Inside each one, turn the lens to move
         between product, architecture, engineering and impact.
       </p>
 
@@ -25,6 +26,9 @@ export function WorkProjection() {
                 {String(i + 1).padStart(2, "0")} · {p.category} · {p.year}
               </p>
               <h2 className="title-md">{p.title}</h2>
+              <p className="sheet-tags">
+                <ProjectTags project={p} />
+              </p>
               <p className="muted" style={{ margin: "0.4em 0 0", fontSize: "0.92em" }}>
                 {p.summary}
               </p>

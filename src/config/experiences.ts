@@ -15,12 +15,12 @@ export const experiences: Experience[] = [
     period: "May 2025 – Present",
     location: "Onsite · Gurugram",
     highlights: [
-      "Built enterprise-grade UI for multiple research studies on the Top Brass platform with Next.js.",
-      "Led a 3-month client-portal redesign across four study workflows, shipping AI-powered features and modernized journeys.",
-      "Coordinated frontend delivery across Audience, Expert, Vendor, and Admin portals through UAT.",
-      "Stabilized multi-vendor study integrations and SIT environments for release readiness.",
+      "Built enterprise-grade UI for a research platform with Next.js.",
+      "Led a 3-month redesign of a client-facing portal, shipping AI-powered features and modernized user journeys.",
+      "Coordinated frontend delivery across several user-facing portals through UAT.",
+      "Stabilized multi-team integrations and SIT environments for release readiness.",
       "Built a custom OpenTelemetry package with Grafana and Jaeger for centralized frontend logging, metrics, and tracing.",
-      "Shipped an Operations Tool for Admins and Research Associates with dashboards, dialer/Teams integrations, video consent, and RBAC.",
+      "Shipped an internal operations tool with dashboards, calling and meeting integrations, consent management, and role-based access.",
       "Implemented scalable Node.js/Express/MongoDB APIs with encryption, data masking, and audit logging.",
     ],
     technologies: [

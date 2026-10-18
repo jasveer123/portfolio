@@ -22,7 +22,7 @@ export function ScreenTitleCard() {
         : def.hint;
   return (
     <div className="screen-rect title-card" aria-hidden="true">
-      <p className="kicker">{p ? "Case study" : `Slide ${def.number}`}</p>
+      <p className="kicker">{p ? "Project" : `Slide ${def.number}`}</p>
       <h2>{title}</h2>
       <p>{sub}</p>
     </div>

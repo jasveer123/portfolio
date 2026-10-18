@@ -23,5 +23,5 @@ export const site = {
     "Fintech and Web3",
   ],
   currentFocus:
-    "Leading frontend delivery on Jasper Colin’s Top Brass research platform — multi-portal study workflows, AI-powered features and OpenTelemetry observability.",
+    "Leading frontend delivery on a research platform at Jasper Colin — multi-portal workflows, AI-powered features and OpenTelemetry observability.",
 } as const;

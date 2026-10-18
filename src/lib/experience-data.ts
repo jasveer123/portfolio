@@ -46,10 +46,10 @@ const extras: Record<string, FrameExtras> = {
   },
   "Jasper Colin": {
     startYear: "2025",
-    products: ["Top Brass research platform", "Client portal redesign", "Operations Tool", "OpenTelemetry package"],
+    products: ["Research platform UI", "Portal redesign", "Internal operations tool", "OpenTelemetry package"],
     impact: [
-      "Led a client-portal redesign across four study workflows within a 3-month deadline.",
-      "Centralised frontend logging, metrics and tracing across Top Brass services.",
+      "Led a portal redesign with AI-powered features within a 3-month deadline.",
+      "Centralised frontend logging, metrics and tracing across services.",
     ],
     tint: "#A9573A",
   },
